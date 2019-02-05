@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['login'])) {
+  header('Location: http://localhost/Univ');
+}
+ ?>
 <!DOCTYPE html>
 <html>
 
@@ -33,7 +39,7 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_up" action="" method="POST">
+                <form id="sign_up" action="action.php" method="POST">
                     <div class="msg">Register a new membership</div>
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -67,15 +73,27 @@
                             <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
                         </div>
                     </div>
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="material-icons">wc</i>
+                      </span>
+                      <div class="form-line">
+                        <select required="" class="form-control" name="gender" required autofocus>
+                          <option value="">Gender</option>
+                          <option value="L">Laki - Laki</option>
+                          <option value="P">Perempuan</option>
+                        </select>
+                      </div>
+                    </div>
                     <div class="form-group">
                         <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
                         <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
                     </div>
 
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" name="signup" type="submit">SIGN UP</button>
 
                     <div class="m-t-25 m-b--5 align-center">
-                        <a href="http://localhost:81/univ/views/sign-in.php">You already have a membership?</a>
+                        <a href="http://localhost/Univ/views/sign-in.php">You already have a membership?</a>
                     </div>
                 </form>
             </div>
